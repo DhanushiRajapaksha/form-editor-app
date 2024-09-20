@@ -66,15 +66,7 @@ const EmailScreen = ({ onSubmit }) => {
               onChange={handleInputChange}
             />
           </div>
-          <div>
-            <label>Email:</label>
-            <input
-              type="email"
-              value={email}
-              onChange={handleEmailChange}
-            />
-            {emailError && <p className="error">{emailError}</p>}
-          </div>
+          
           <button type="submit">Save Settings</button>
         </form>
       </div>
