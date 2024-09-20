@@ -21,13 +21,13 @@ const WelcomeScreen = ({ onSubmit }) => {
   };
 
   const handleImageUpload = (e) => {
-    const file = e.target.files[0]; // Get the uploaded file
+    const file = e.target.files[0]; 
     if (file) {
       const reader = new FileReader();
       reader.onload = () => {
-        setImage(reader.result); // Set the image data URL to preview the image
+        setImage(reader.result); 
       };
-      reader.readAsDataURL(file); // Convert the image to a data URL
+      reader.readAsDataURL(file); 
     }
   };
 
@@ -53,7 +53,7 @@ const WelcomeScreen = ({ onSubmit }) => {
             />
           </div>
           <div>
-            <label>Form Title:</label>
+            <label>Description</label>
             <input
               type="text"
               name="formTitle"

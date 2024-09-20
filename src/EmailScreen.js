@@ -2,29 +2,19 @@ import React, { useState } from 'react';
 import './App.css';
 
 const EmailScreen = ({ onSubmit }) => {
-  const [email, setEmail] = useState('');
-  const [emailError, setEmailError] = useState('');
+  const [email] = useState('');
+  const [setEmailError] = useState('');
   const [settings, setSettings] = useState({
     emailMessage: 'Enter your email below',
     buttonLabel: 'Submit',
   });
 
-  // Email validation logic
+ 
   const validateEmail = (value) => {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     return emailRegex.test(value);
   };
 
-  const handleEmailChange = (e) => {
-    const value = e.target.value;
-    setEmail(value);
-
-    if (!validateEmail(value)) {
-      setEmailError('Please enter a valid email address.');
-    } else {
-      setEmailError('');
-    }
-  };
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;

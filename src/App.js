@@ -7,7 +7,6 @@ function App() {
 
   const handleSettingsSubmit = (settings) => {
     console.log('Settings submitted:', settings);
-    // You can handle navigation here after form submission
   };
 
   return (
