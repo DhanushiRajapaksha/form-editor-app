@@ -1,0 +1,95 @@
+import React, { useState } from 'react';
+import './App.css';
+
+const EmailScreen = ({ onSubmit }) => {
+  const [email, setEmail] = useState('');
+  const [emailError, setEmailError] = useState('');
+  const [settings, setSettings] = useState({
+    emailMessage: 'Enter your email below',
+    buttonLabel: 'Submit',
+  });
+
+  // Email validation logic
+  const validateEmail = (value) => {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return emailRegex.test(value);
+  };
+
+  const handleEmailChange = (e) => {
+    const value = e.target.value;
+    setEmail(value);
+
+    if (!validateEmail(value)) {
+      setEmailError('Please enter a valid email address.');
+    } else {
+      setEmailError('');
+    }
+  };
+
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setSettings((prevSettings) => ({
+      ...prevSettings,
+      [name]: value,
+    }));
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (validateEmail(email)) {
+      onSubmit(settings);
+    } else {
+      setEmailError('Please enter a valid email before submitting.');
+    }
+  };
+
+  return (
+    <div className="email-screen">
+      <div className="editor-section">
+        <h1>Edit Email Settings</h1>
+        <form onSubmit={handleSubmit}>
+          <div>
+            <label>Email Message:</label>
+            <input
+              type="text"
+              name="emailMessage"
+              value={settings.emailMessage}
+              onChange={handleInputChange}
+            />
+          </div>
+          <div>
+            <label>Button Label:</label>
+            <input
+              type="text"
+              name="buttonLabel"
+              value={settings.buttonLabel}
+              onChange={handleInputChange}
+            />
+          </div>
+          <div>
+            <label>Email:</label>
+            <input
+              type="email"
+              value={email}
+              onChange={handleEmailChange}
+            />
+            {emailError && <p className="error">{emailError}</p>}
+          </div>
+          <button type="submit">Save Settings</button>
+        </form>
+      </div>
+
+      {/* Live Preview */}
+      <div className="preview-section">
+        
+        <div className="preview-container">
+          <h1>{settings.emailMessage}</h1>
+          <input type="email" placeholder="Enter your email" value={email} disabled />
+          <button>{settings.buttonLabel}</button>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default EmailScreen;

@@ -1,5 +1,7 @@
 .App {
-  text-align: center;
+  text-align: left;
+  font-family: Arial, sans-serif;
+  padding: 40px;
 }
 
 .App-logo {
@@ -35,4 +37,123 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+body {
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f4f4f9;
+}
+
+.welcome-screen {
+  display: flex;
+  justify-content: space-between;
+  padding: 2px;
+ height: 500px; 
+}
+
+.email-screen {
+  display: flex;
+  justify-content: space-between;
+  padding: 2px;
+ height: 500px; 
+}
+
+.editor-section {
+  width: 30%; 
+  padding: 20px;
+  background-color: #ffffff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+ 
+}
+
+.editor-section h1 {
+  margin-bottom: 20px;
+  font-size: 24px;
+  color: #333;
+}
+
+.editor-section form {
+  display: flex;
+  flex-direction: column;
+}
+
+.editor-section input {
+  padding: 10px;
+  margin-bottom: 20px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  width: 100%;
+}
+
+.editor-section input:focus {
+  border-color: #007BFF;
+  outline: none;
+}
+
+button {
+  padding: 10px 20px;
+  font-size: 12px;
+  color: #fff;
+  background-color: #ae00ff;
+  border: none;
+  border-radius: 20px;
+  margin: 5px;
+  cursor: pointer;
+align-self: flex-start; 
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+.preview-section {
+  width: 48%; 
+  padding-left: 40px;
+  background-color: #f9fafb;
+  border-left: 2px solid #e0e0e0;
+  border-radius: 8px;
+  flex:1;
+  padding-top:110px;
+  text-align: left;
+}
+
+.preview-section h1 {
+  font-size: 24px;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.preview-container h3 {
+  font-size: 18px;
+  color: #444;
+}
+
+.preview-container p {
+  font-size: 16px;
+  color: #555;
+}
+
+@media (max-width: 768px) {
+  .welcome-screen {
+    flex-direction: column;
+  }
+
+  .editor-section,
+  .preview-section {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+}
+
+.preview-image {
+  position: absolute;
+  top: 120px;
+  right: 110px;
+ 
+  border-radius: 8px;
+  
 }

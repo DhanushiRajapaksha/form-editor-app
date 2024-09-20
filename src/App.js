@@ -1,23 +1,29 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from 'react';
+import WelcomeScreen from './WelcomeScreen';
+import EmailScreen from './EmailScreen';
 
 function App() {
+  const [page, setPage] = useState('welcome');
+
+  const handleSettingsSubmit = (settings) => {
+    console.log('Settings submitted:', settings);
+    // You can handle navigation here after form submission
+  };
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <div className="navigation">
+        <button onClick={() => setPage('welcome')}>Welcome Screen</button>
+        <button onClick={() => setPage('email')}>Email Screen</button>
+      </div>
+      
+      {page === 'welcome' ? (
+        <WelcomeScreen onSubmit={handleSettingsSubmit} />
+      ) : (
+        <EmailScreen onSubmit={handleSettingsSubmit} />
+      )}
+
+      
     </div>
   );
 }
